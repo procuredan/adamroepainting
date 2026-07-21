@@ -246,9 +246,9 @@ footer a{color:#A7BED1;display:block;margin-bottom:12px;}
 </div>
 
 <div class="ms-card" id="form">
-<div class="ms-head"><h3 id="msHead">Get Your Free Painting Estimate<span class="geo-tail" hidden> in <span class="geo-city"></span></span></h3><p id="msSub">3 quick questions. About 60 seconds. Free, no obligation.</p></div>
+<div class="ms-head"><h3 id="msHead">Get Your Free Painting Estimate<span class="geo-tail" hidden> in <span class="geo-city"></span></span></h3><p id="msSub">A few quick questions — about 60 seconds. Free, no obligation.</p></div>
 <div class="ms-progress">
-  <div class="ms-progress-meta"><span id="msStepLabel">Step 1 of 4</span><span id="msHint">Quick &amp; easy</span></div>
+  <div class="ms-progress-meta"><span id="msStepLabel">Step 1 of 7</span><span id="msHint">Quick &amp; easy</span></div>
   <div class="ms-track"><div class="ms-bar" id="msBar"></div></div>
 </div>
 <form action="https://procure-lead-engine.dan-fda.workers.dev/submit" method="POST" id="msForm">
@@ -258,26 +258,44 @@ footer a{color:#A7BED1;display:block;margin-bottom:12px;}
   <input type="hidden" name="_redirect" value="https://adamroepainting.com/thank-you">
   <input type="hidden" name="pm_sid" id="pm_sid" value="" />
   <input type="hidden" name="variant" value="multistep" />
+  <input type="hidden" name="project_type" id="f_project_type" value="" />
   <input type="hidden" name="service_type" id="f_service_type" value="" />
   <input type="hidden" name="scope" id="f_scope" value="" />
+  <input type="hidden" name="commercial_service" id="f_commercial_service" value="" />
+  <input type="hidden" name="property_type" id="f_property_type" value="" />
   <input type="hidden" name="timeframe" id="f_timeframe" value="" />
   <div class="ms-body">
     <div class="ms-step active" data-step="1">
-      <div class="ms-q">What do you need painted?</div>
+      <div class="ms-q">Is this for your home or a commercial property?</div>
+      <div class="ms-help">Pick one to get started.</div>
+      <div class="ms-choices" data-target="project_type"></div>
+    </div>
+    <div class="ms-step" data-step="2">
+      <div class="ms-q">What do you need done?</div>
       <div class="ms-help">Pick the closest match.</div>
       <div class="ms-choices" data-target="service_type"></div>
     </div>
-    <div class="ms-step" data-step="2">
+    <div class="ms-step" data-step="3">
       <div class="ms-q">How big is the project?</div>
       <div class="ms-help">A rough idea is fine.</div>
       <div class="ms-choices" data-target="scope"></div>
     </div>
-    <div class="ms-step" data-step="3">
+    <div class="ms-step" data-step="4">
+      <div class="ms-q">What kind of commercial work?</div>
+      <div class="ms-help">Pick the closest match.</div>
+      <div class="ms-choices" data-target="commercial_service"></div>
+    </div>
+    <div class="ms-step" data-step="5">
+      <div class="ms-q">What type of property is it?</div>
+      <div class="ms-help">Helps us match the right crew.</div>
+      <div class="ms-choices" data-target="property_type"></div>
+    </div>
+    <div class="ms-step" data-step="6">
       <div class="ms-q">How soon do you want it done?</div>
       <div class="ms-help">We'll plan around your schedule.</div>
       <div class="ms-choices" data-target="timeframe"></div>
     </div>
-    <div class="ms-step" data-step="4">
+    <div class="ms-step" data-step="7">
       <div class="ms-q" id="msContactQ">Last step — where should we send your estimate?</div>
       <p class="ms-reassure" id="msReassure">Tell us where to reach you and we'll follow up fast with your free, no-obligation written estimate — usually within one business day.</p>
       <div class="ms-fields">
@@ -392,7 +410,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script>
 (function(){
-  var STEPS = [{"field":"service_type","options":[{"icon":"🏠","label":"Interior","value":"Interior painting"},{"icon":"🏡","label":"Exterior","value":"Exterior painting"},{"icon":"🖌️","label":"Interior + exterior","value":"Interior and exterior painting"},{"icon":"🚪","label":"Cabinets","value":"Cabinet refinishing"},{"icon":"🏢","label":"Commercial","value":"Commercial painting"},{"icon":"❓","label":"Something else","value":"Other"}]},{"field":"scope","options":[{"icon":"🏠","label":"Whole house","value":"Whole house"},{"icon":"🛋️","label":"A few rooms","value":"A few rooms"},{"icon":"🚪","label":"Trim / doors / ceilings","value":"Trim, doors, or ceilings"},{"icon":"🍽️","label":"Kitchen cabinets","value":"Kitchen cabinets"},{"icon":"🪵","label":"Deck / fence","value":"Deck or fence"},{"icon":"❓","label":"Not sure","value":"Not sure"}]},{"field":"timeframe","options":[{"icon":"🚨","label":"As soon as possible","value":"As soon as possible"},{"icon":"📅","label":"Within 1–4 weeks","value":"Within 1–4 weeks"},{"icon":"🗓️","label":"1–3 months","value":"1–3 months"},{"icon":"💬","label":"Just researching","value":"Just researching"}]}];
+  var STEPS = [{"field":"project_type","options":[{"icon":"🏠","label":"Home / residential","value":"Residential"},{"icon":"🏢","label":"Commercial property","value":"Commercial"}]},{"field":"service_type","options":[{"icon":"🏠","label":"Interior","value":"Interior painting"},{"icon":"🏡","label":"Exterior","value":"Exterior painting"},{"icon":"🖌️","label":"Interior + exterior","value":"Interior and exterior painting"},{"icon":"🚪","label":"Cabinets","value":"Cabinet refinishing"},{"icon":"🚗","label":"Epoxy garage floor","value":"Epoxy garage floor coating"},{"icon":"🪵","label":"Deck / fence","value":"Deck or fence"},{"icon":"❓","label":"Something else","value":"Other"}]},{"field":"scope","options":[{"icon":"🏠","label":"Whole house","value":"Whole house"},{"icon":"🛋️","label":"A few rooms","value":"A few rooms"},{"icon":"🚪","label":"Trim / doors / ceilings","value":"Trim, doors, or ceilings"},{"icon":"🍽️","label":"Kitchen cabinets","value":"Kitchen cabinets"},{"icon":"🚗","label":"Garage floor","value":"Garage floor"},{"icon":"🪵","label":"Deck / fence","value":"Deck or fence"},{"icon":"❓","label":"Not sure","value":"Not sure"}]},{"field":"commercial_service","options":[{"icon":"🎨","label":"Interior repaint","value":"Commercial interior repaint"},{"icon":"🏢","label":"Exterior / building","value":"Commercial exterior / building"},{"icon":"🅿️","label":"Epoxy / concrete floors","value":"Epoxy or concrete floor coating"},{"icon":"🏭","label":"Industrial / warehouse","value":"Industrial / warehouse coatings"},{"icon":"🚧","label":"New construction","value":"New construction"},{"icon":"❓","label":"Not sure yet","value":"Not sure"}]},{"field":"property_type","options":[{"icon":"🏢","label":"Office","value":"Office"},{"icon":"🛍️","label":"Retail / restaurant","value":"Retail or restaurant"},{"icon":"🏭","label":"Warehouse / industrial","value":"Warehouse or industrial"},{"icon":"🏥","label":"Medical / dental","value":"Medical or dental"},{"icon":"🏘️","label":"Apartments / HOA / multifamily","value":"Apartments, HOA, or multifamily"},{"icon":"🔑","label":"Property management","value":"Property management"},{"icon":"❓","label":"Other","value":"Other"}]},{"field":"timeframe","options":[{"icon":"🚨","label":"As soon as possible","value":"As soon as possible"},{"icon":"📅","label":"Within 1–4 weeks","value":"Within 1–4 weeks"},{"icon":"🗓️","label":"1–3 months","value":"1–3 months"},{"icon":"💬","label":"Just researching","value":"Just researching"}]}];
   var ANGLES = null;
   var SITE = "adamroepainting.com";
   var ENGINE = "https://procure-lead-engine.dan-fda.workers.dev";
@@ -435,11 +453,35 @@ document.addEventListener("DOMContentLoaded", function () {
   function next(){ if(cur<total-1){ cur++; render(); } }
   function prev(){ if(cur>0){ cur--; render(); } }
   if(back) back.addEventListener('click', prev);
+  // ---- conditional branching (showIf): redefine nav to skip steps whose condition is unmet ----
+  var COND = [null,{"field":"project_type","equals":"Residential"},{"field":"project_type","equals":"Residential"},{"field":"project_type","equals":"Commercial"},{"field":"project_type","equals":"Commercial"},null,null];
+  function _bans(f){ var e=document.getElementById('f_'+f)||document.getElementById('i_'+f)||document.querySelector('#msForm [name="'+f+'"]'); return e?(e.value||''):''; }
+  function _bok(c){ if(!c) return true; var v=_bans(c.field); if(c.equals!=null) return v===c.equals; if(c.in&&c.in.length) return c.in.indexOf(v)>=0; return true; }
+  function _belig(i){ return _bok(COND[i]); }
+  function _bctrl(p){ var o=[]; var ch=p.querySelector('.ms-choices'); if(ch){ var h=document.getElementById('f_'+ch.getAttribute('data-target')); if(h) o.push(h); } Array.prototype.push.apply(o, p.querySelectorAll('.ms-input-el')); return o; }
+  function _bsync(){ steps.forEach(function(s,i){ var ok=_belig(i); _bctrl(s).forEach(function(el){ el.disabled=!ok; }); }); }
+  function _bvis(){ var v=[]; steps.forEach(function(s,i){ if(_belig(i)) v.push(i); }); return v; }
+  if(back) back.removeEventListener('click', prev);
+  render=function(){
+    _bsync();
+    var vis=_bvis(); if(!vis.length) vis=[0];
+    var pos=vis.indexOf(cur); if(pos<0){ cur=vis[0]; pos=0; }
+    var vt=vis.length;
+    steps.forEach(function(s,i){ s.classList.toggle('active', i===cur); });
+    if(bar) bar.style.width=Math.round(((pos+1)/vt)*100)+'%';
+    if(label) label.textContent='Step '+(pos+1)+' of '+vt;
+    if(hint){ var _pr=(pos+1)/vt; hint.textContent=_pr<0.34?'Quick & easy':_pr<0.67?'Making progress':_pr<0.9?'Almost done':'Last step'; }
+    if(back) back.classList.toggle('hide', pos<=0);
+    ping();
+  };
+  next=function(){ for(var i=cur+1;i<steps.length;i++){ if(_belig(i)){ cur=i; render(); return; } } };
+  prev=function(){ for(var i=cur-1;i>=0;i--){ if(_belig(i)){ cur=i; render(); return; } } };
+  if(back) back.addEventListener('click', prev);
 
   function ping(){
     reached = Math.max(reached, cur+1);
     try{
-      var ans={}; STEPS.forEach(function(st){ var i=document.getElementById('f_'+st.field); if(i&&i.value) ans[st.field]=i.value; });
+      var ans={}; STEPS.forEach(function(st){ var i=document.getElementById('f_'+st.field); if(i&&i.value&&!i.disabled) ans[st.field]=i.value; });
       ans.angle=angle;
       var body=new URLSearchParams({ session_id:sid, site:SITE, last_field:'step-'+(cur+1), fields_reached:String(reached), extra:JSON.stringify(ans) });
       fetch(ENGINE+'/partial',{ method:'POST', body:body, keepalive:true }).catch(function(){});
